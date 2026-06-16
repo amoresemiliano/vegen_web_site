@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegen Digital - Consultoría y Digitalización (Light Version)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        vegenGreen: '#10B981',
+                        vegenSlate: '#1F2937',
+                        vegenBg: '#FAFAFA'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-vegenBg text-vegenSlate font-sans antialiased scroll-smooth">
+
+    <!-- BARRA DE NAVEGACIÓN RÁPIDA -->
+<div class="bg-gray-900 text-white text-[10px] sm:text-xs py-2 px-4 flex flex-col sm:flex-row items-center justify-between border-b border-gray-800 relative z-[9999]">
+    <div class="flex items-center space-x-2 mb-2 sm:mb-0">
+        <span class="text-emerald-400 font-bold tracking-wider">VEGEN DIGITAL</span>
+        <span class="text-gray-600">|</span>
+        <span class="text-gray-400 uppercase">Propuestas de Diseño</span>
+    </div>
+    <div class="flex flex-wrap items-center justify-center gap-2">
+        <span class="text-gray-400 hidden md:inline">Cambiar versión:</span>
+        <a href="clara.html" class="px-2.5 py-1 rounded bg-white text-black font-bold hover:bg-gray-200 transition">Clara</a>
+        <a href="oscura.html" class="px-2.5 py-1 rounded bg-gray-800 text-white font-bold border border-gray-700 hover:bg-gray-700 transition">Oscura</a>
+        <a href="hibrida.html" class="px-2.5 py-1 rounded bg-orange-600 text-white font-bold hover:bg-orange-500 transition">Híbrida</a>
+        <span class="text-gray-600 hidden sm:inline">|</span>
+        <a href="index.html" class="px-2.5 py-1 rounded bg-gray-700 text-gray-300 font-bold hover:bg-gray-600 hover:text-white transition">Volver al Hub</a>
+    </div>
+</div>
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-150">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <!-- Sprout Icon -->
+                <svg class="w-8 h-8 text-vegenGreen" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                </svg>
+                <span class="text-xl font-bold tracking-tight text-gray-900">Vegen<span class="text-vegenGreen font-semibold block text-xs tracking-widest uppercase">Digital</span></span>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-sm font-semibold text-gray-600">
+                <a href="#inicio" class="hover:text-vegenGreen transition">Inicio</a>
+                <a href="#por-que" class="hover:text-vegenGreen transition">¿Por qué elegirnos?</a>
+                <a href="#servicios" class="hover:text-vegenGreen transition">Servicios</a>
+                <a href="#cotizador" class="hover:text-vegenGreen transition">Presupuesto</a>
+                <a href="#contacto" class="hover:text-vegenGreen transition">Contacto</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="#contacto" class="hidden sm:inline-flex items-center px-4 py-2 border border-gray-300 text-xs font-bold rounded-xl text-gray-700 hover:border-vegenGreen hover:text-vegenGreen transition">
+                    Auditoría Gratis
+                </a>
+                <a href="https://api.whatsapp.com/send?phone=34617741199&text=Hola%20Vegen%20Digital%2C%20deseo%20hacerles%20una%20consulta." target="_blank" class="bg-vegenGreen text-white font-bold text-xs px-4 py-2 rounded-xl hover:bg-emerald-600 transition shadow-sm">
+                    Charlemos
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="py-20 lg:py-28 bg-gradient-to-b from-emerald-50/50 to-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-950 leading-tight">
+                        Ayudamos a negocios tradicionales a dar el <span class="text-vegenGreen">salto digital</span> sin complicaciones.
+                    </h1>
+                    <p class="text-lg text-gray-600">
+                        Te acompañamos paso a paso con tecnología útil, precios accesibles y soluciones simples diseñadas para aumentar tu rentabilidad.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                        <a href="#cotizador" class="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-bold rounded-xl text-white bg-vegenGreen hover:bg-emerald-600 transition shadow-md">
+                            Calcula tu Presupuesto
+                        </a>
+                        <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 border border-gray-200 text-base font-bold rounded-xl text-gray-700 bg-white hover:bg-gray-50 transition shadow-sm">
+                            Pedir Auditoría Gratis
+                        </a>
+                    </div>
+                </div>
+                <!-- Simple Clean Illustrative Card -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-150">
+                    <h3 class="text-lg font-bold text-gray-900 mb-6">Nuestros Pilares Operativos</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-emerald-100 text-vegenGreen flex items-center justify-center font-bold flex-shrink-0">1</div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-gray-900">Marketing & Comunicación</h4>
+                                <p class="text-xs text-gray-500">Campañas claras y trazables para encontrar clientes.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-emerald-100 text-vegenGreen flex items-center justify-center font-bold flex-shrink-0">2</div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-gray-900">Inteligencia Artificial Práctica</h4>
+                                <p class="text-xs text-gray-500">Automatizaciones estables sin complicaciones técnicas.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-emerald-100 text-vegenGreen flex items-center justify-center font-bold flex-shrink-0">3</div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-gray-900">Sistemas & Digitalización</h4>
+                                <p class="text-xs text-gray-500">Conexión limpia de tu inventario, finanzas y facturas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ¿Por qué elegirnos? -->
+    <section id="por-que" class="py-20 bg-white border-y border-gray-150">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-extrabold text-gray-900">¿Por qué trabajar con Vegen Digital?</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+                <div class="p-6 bg-vegenBg rounded-2xl border border-gray-100">
+                    <div class="text-vegenGreen text-3xl font-bold mb-2">01</div>
+                    <h3 class="font-bold text-gray-900 mb-1">Soluciones Simples</h3>
+                    <p class="text-xs text-gray-500">Diseñado para que tu equipo lo entienda y lo use con facilidad.</p>
+                </div>
+                <div class="p-6 bg-vegenBg rounded-2xl border border-gray-100">
+                    <div class="text-vegenGreen text-3xl font-bold mb-2">02</div>
+                    <h3 class="font-bold text-gray-900 mb-1">Tecnología Útil</h3>
+                    <p class="text-xs text-gray-500">Solo implementamos lo que realmente impacta en tu rentabilidad.</p>
+                </div>
+                <div class="p-6 bg-vegenBg rounded-2xl border border-gray-100">
+                    <div class="text-vegenGreen text-3xl font-bold mb-2">03</div>
+                    <h3 class="font-bold text-gray-900 mb-1">Precios Accesibles</h3>
+                    <p class="text-xs text-gray-500">Estructuras presupuestarias adaptadas a las pymes.</p>
+                </div>
+                <div class="p-6 bg-vegenBg rounded-2xl border border-gray-100">
+                    <div class="text-vegenGreen text-3xl font-bold mb-2">04</div>
+                    <h3 class="font-bold text-gray-900 mb-1">Sin Complicaciones</h3>
+                    <p class="text-xs text-gray-500">Nosotros nos encargamos de toda la integración y soporte.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900">Nuestros Servicios de Digitalización</h2>
+                <p class="text-sm text-gray-600 mt-2">Cubrimos todas las necesidades operativas de tu negocio.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-2xl border border-gray-150 shadow-sm">
+                    <h3 class="font-bold text-gray-900 text-lg">Web Profesional</h3>
+                    <p class="text-xs text-gray-500 mt-2">Sitios web y tiendas en línea rápidos, seguros y adaptados para conseguir ventas de forma constante.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-gray-150 shadow-sm">
+                    <h3 class="font-bold text-gray-900 text-lg">Redes Sociales</h3>
+                    <p class="text-xs text-gray-500 mt-2">Gestión y estrategias de publicidad digital segmentadas por público objetivo.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-gray-150 shadow-sm">
+                    <h3 class="font-bold text-gray-900 text-lg">Automatización de Tareas</h3>
+                    <p class="text-xs text-gray-500 mt-2">Ahorro de horas semanales en procesos repetitivos de tu equipo mediante IA.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cotizador Integrado (Light Style) -->
+    <section id="cotizador" class="py-20 bg-emerald-50/50 border-t border-gray-150">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-2xl border border-gray-200 p-8 shadow-xl">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900">Configura tu Presupuesto Estimado</h2>
+                    <p class="text-xs text-gray-500 mt-1">Selecciona los bloques de trabajo en los que requieres apoyo inmediato.</p>
+                </div>
+                <form id="calculatorForm" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-3">1. Selecciona los servicios:</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <label class="flex items-center p-4 bg-gray-50 rounded-xl border border-gray-200 cursor-pointer hover:border-vegenGreen transition">
+                                <input type="checkbox" name="servicio" value="Web Profesional" data-cost="800" class="w-5 h-5 text-vegenGreen border-gray-300 rounded focus:ring-vegenGreen" onchange="calculateBudget()">
+                                <div class="ml-3">
+                                    <span class="block font-semibold text-gray-900 text-sm">Web / Tienda Online</span>
+                                    <span class="block text-[10px] text-gray-500">Desde 800€</span>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 bg-gray-50 rounded-xl border border-gray-200 cursor-pointer hover:border-vegenGreen transition">
+                                <input type="checkbox" name="servicio" value="Redes Sociales" data-cost="400" class="w-5 h-5 text-vegenGreen border-gray-300 rounded focus:ring-vegenGreen" onchange="calculateBudget()">
+                                <div class="ml-3">
+                                    <span class="block font-semibold text-gray-900 text-sm">Redes Sociales</span>
+                                    <span class="block text-[10px] text-gray-500">Desde 400€/mes</span>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 bg-gray-50 rounded-xl border border-gray-200 cursor-pointer hover:border-vegenGreen transition">
+                                <input type="checkbox" name="servicio" value="Automatización con IA" data-cost="700" class="w-5 h-5 text-vegenGreen border-gray-300 rounded focus:ring-vegenGreen" onchange="calculateBudget()">
+                                <div class="ml-3">
+                                    <span class="block font-semibold text-gray-900 text-sm">Automatización con IA</span>
+                                    <span class="block text-[10px] text-gray-500">Desde 700€</span>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 bg-gray-50 rounded-xl border border-gray-200 cursor-pointer hover:border-vegenGreen transition">
+                                <input type="checkbox" name="servicio" value="Analítica / CRM" data-cost="550" class="w-5 h-5 text-vegenGreen border-gray-300 rounded focus:ring-vegenGreen" onchange="calculateBudget()">
+                                <div class="ml-3">
+                                    <span class="block font-semibold text-gray-900 text-sm">Analítica y CRM</span>
+                                    <span class="block text-[10px] text-gray-500">Desde 550€</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">2. Tipo de negocio:</label>
+                            <select id="tipoNegocio" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-700 focus:outline-none focus:border-vegenGreen text-sm">
+                                <option value="Comercio local">Comercio local</option>
+                                <option value="Restaurante / Hostelería">Restaurante / Hostelería</option>
+                                <option value="Servicios profesionales">Servicios profesionales</option>
+                                <option value="E-commerce">E-commerce</option>
+                                <option value="Empresa / PyME">Empresa / PyME</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">3. Situación digital:</label>
+                            <select id="presencia" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-700 focus:outline-none focus:border-vegenGreen text-sm">
+                                <option value="No tengo presencia digital">No tengo presencia digital</option>
+                                <option value="Tengo redes pero no web">Tengo redes pero no web</option>
+                                <option value="Tengo web pero no funciona bien">Tengo web pero no me funciona bien</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Display Total & Submit -->
+                    <div class="p-6 bg-emerald-50 rounded-xl border border-emerald-100 flex flex-col sm:flex-row justify-between items-center">
+                        <div class="mb-4 sm:mb-0 text-center sm:text-left">
+                            <span class="text-xs uppercase font-bold text-vegenGreen">Inversión Estimada</span>
+                            <div class="text-3xl font-extrabold text-gray-900 mt-1"><span id="totalDisplay">0</span>€</div>
+                        </div>
+                        <button type="button" onclick="sendWhatsAppEstimate()" class="bg-vegenGreen text-white font-bold px-6 py-3 rounded-xl hover:bg-emerald-600 transition w-full sm:w-auto text-sm shadow-md">
+                            Enviar Presupuesto por WhatsApp
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Free Audit Form -->
+    <section id="contacto" class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-gray-900">Solicita tu Auditoría Digital Gratuita</h2>
+                <p class="text-gray-500 mt-2">Analizaremos tus sistemas, web y flujo de datos sin costes para encontrar puntos de mejora.</p>
+            </div>
+            <form action="https://vegendigital.com/MM/diagnostico_digital/" method="GET" class="space-y-6 bg-vegenBg p-8 rounded-2xl border border-gray-150 shadow-md">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-600 uppercase mb-2">Nombre Completo</label>
+                        <input type="text" required placeholder="Tu nombre" class="w-full p-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-vegenGreen text-sm text-gray-800 shadow-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-600 uppercase mb-2">Email corporativo</label>
+                        <input type="email" required placeholder="tu@empresa.com" class="w-full p-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-vegenGreen text-sm text-gray-800 shadow-sm">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-600 uppercase mb-2">Mensaje o Comentarios sobre tu proyecto</label>
+                    <textarea rows="4" placeholder="Cuéntanos brevemente qué herramientas utilizas actualmente en tu negocio..." class="w-full p-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-vegenGreen text-sm text-gray-800 shadow-sm"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-vegenGreen text-white font-bold py-3 rounded-xl hover:bg-emerald-600 transition text-sm uppercase tracking-wider shadow-md">
+                    Solicitar Auditoría Gratuita
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-vegenSlate py-12 text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between">
+            <span class="text-xs">© 2026 Vegen Digital. Calle Augusto Figueroa 9, 28004, Madrid.</span>
+            <div class="flex space-x-6 mt-4 md:mt-0 text-xs">
+                <a href="https://linkedin.com" target="_blank" class="hover:text-white">LinkedIn</a>
+                <a href="https://instagram.com" target="_blank" class="hover:text-white">Instagram</a>
+                <a href="https://facebook.com" target="_blank" class="hover:text-white">Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://api.whatsapp.com/send?phone=34617741199&text=Hola%20Vegen%20Digital%2C%20necesito%20ayuda%20para%20mi%20negocio." target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-105 transition-transform z-50">
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.413 9.863-9.83.001-2.624-1.013-5.091-2.861-6.942-1.847-1.85-4.307-2.87-6.932-2.87-5.438 0-9.862 4.414-9.866 9.831-.001 1.762.48 3.483 1.391 5.017l-.991 3.616 3.701-.971zm11.367-7.79c-.195-.097-1.15-.567-1.329-.631-.178-.065-.308-.097-.439.097-.13.195-.503.631-.617.761-.113.13-.227.146-.422.049-.195-.097-.822-.303-1.566-.967-.58-.518-.97-1.157-1.084-1.351-.113-.195-.012-.301.085-.398.088-.087.195-.227.293-.341.097-.113.13-.195.195-.325.065-.13.033-.243-.016-.341-.049-.097-.439-1.056-.601-1.446-.158-.38-.332-.328-.455-.328-.117-.005-.251-.005-.386-.005-.135 0-.354.051-.54.254-.186.203-.709.693-.709 1.691 0 1.002.722 1.968.822 2.1 1.002 1.31 1.967 1.968 3.518 2.56.37.141.657.225.882.296.371.118.709.102.977.062.299-.045.92-.376 1.049-.74.13-.364.13-.677.091-.74-.039-.062-.152-.097-.347-.145z"/></svg>
+    </a>
+
+    <!-- Calculator JS -->
+    <script>
+        function calculateBudget() {
+            let total = 0;
+            const checkboxes = document.querySelectorAll('input[name="servicio"]:checked');
+            checkboxes.forEach(cb => {
+                total += parseFloat(cb.getAttribute('data-cost'));
+            });
+            document.getElementById('totalDisplay').innerText = total;
+        }
+
+        function sendWhatsAppEstimate() {
+            const numTelefono = "34617741199";
+            const checkboxes = document.querySelectorAll('input[name="servicio"]:checked');
+            
+            if (checkboxes.length === 0) {
+                alert("Por favor, selecciona al menos un servicio.");
+                return;
+            }
+
+            let serviciosSeleccionados = [];
+            let total = 0;
+            checkboxes.forEach(cb => {
+                serviciosSeleccionados.push(cb.value);
+                total += parseFloat(cb.getAttribute('data-cost'));
+            });
+
+            const tipoNegocio = document.getElementById('tipoNegocio').value;
+            const presencia = document.getElementById('presencia').value;
+
+            const mensaje = `Hola Vegen Digital 👋, acabo de configurar un presupuesto estimado en vuestra web corporativa:
+
+📌 *Tipo de negocio:* ${tipoNegocio}
+🌐 *Situación actual:* ${presencia}
+
+🛠️ *Servicios seleccionados:*
+${serviciosSeleccionados.map(s => `• ${s}`).join('\n')}
+
+💶 *Inversión estimada:* ${total}€
+
+📅 Me gustaría agendar una reunión rápida e iniciar la *Auditoría Digital Gratuita* de mis sistemas.`;
+
+            const url = `https://api.whatsapp.com/send?phone=${numTelefono}&text=${encodeURIComponent(mensaje)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
