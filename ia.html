@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inteligencia Artificial - Vegen Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        vegenGreen: '#10B981',
+                        vegenGreenDark: '#047857',
+                        vegenSlate: '#1E293B',
+                        vegenOrange: '#EA580C',
+                        vegenLight: '#FAFAFA'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased scroll-smooth">
+
+    <div class="bg-vegenSlate text-center py-2 px-4 text-xs font-bold text-white tracking-wider uppercase relative z-50">
+        🔥 Solicita hoy tu <span class="text-vegenGreen">Auditoría de Sistemas 100% Gratuita</span>. Cupos limitados para este mes.
+    </div>
+
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-150">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html#inicio" class="flex items-center space-x-2">
+                <svg class="w-8 h-8 text-vegenGreen flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22V12" />
+                    <path d="M12 12C12 7.58172 8.41828 4 4 4C4 8.41828 7.58172 12 12 12Z" fill="currentColor" fill-opacity="0.2" />
+                    <path d="M12 12C12 7.58172 15.5817 4 20 4C20 8.41828 16.4183 12 12 12Z" fill="currentColor" fill-opacity="0.2" />
+                </svg>
+                <span class="text-xl font-black text-slate-900 tracking-tight">Vegen <span class="text-slate-500 font-medium">Digital</span></span>
+            </a>
+            <nav class="hidden lg:flex items-center space-x-8 text-xs font-extrabold uppercase tracking-wider text-slate-600">
+                <a href="index.html#inicio" class="hover:text-vegenGreen transition">Inicio</a>
+                <a href="index.html#servicios" class="hover:text-vegenGreen transition">Servicios</a>
+                <a href="index.html#por-que" class="hover:text-vegenGreen transition">Nosotros</a>
+                <a href="index.html#planes" class="hover:text-vegenGreen transition">Planes</a>
+                <a href="contacto.html" class="hover:text-vegenGreen transition text-vegenGreenDark">Presupuesto</a>
+                <a href="contacto.html" class="hover:text-vegenGreen transition">Contacto</a>
+            </nav>
+            <div class="flex items-center space-x-3">
+                <button onclick="openAuditModal()" class="btn-orange-live bg-vegenOrange text-white font-bold text-xs px-5 py-2.5 rounded-xl transition shadow-md">
+                    Auditoría Gratis
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal: IA -->
+    <section class="py-20 bg-white border-y border-gray-150 min-h-[60vh]">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="w-16 h-16 bg-emerald-50 rounded-2xl mx-auto flex items-center justify-center mb-6 text-vegenGreen">
+                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                </div>
+                <h1 class="text-4xl font-black text-slate-900 tracking-tight">Inteligencia Artificial</h1>
+                <p class="mt-4 text-slate-500 text-lg">Libera tu talento de las tareas repetitivas.</p>
+            </div>
+
+            <div class="text-base text-slate-600 leading-relaxed space-y-6">
+                <p><strong>La Inteligencia Artificial no ha llegado para reemplazar el talento humano, sino para liberarlo de las tareas repetitivas que agotan la creatividad.</strong> En el entorno de las PyMEs, la IA es la herramienta que permite nivelar el campo de juego contra las grandes corporaciones.</p>
+                <p>Implementamos soluciones que van más allá de un simple chat; diseñamos flujos de trabajo inteligentes que aprenden de tu negocio. Desde la automatización de la atención al cliente hasta la optimización de procesos internos, el objetivo es la eficiencia absoluta.</p>
+                <p>Nuestro enfoque se centra en la utilidad real: no instalamos tecnología por moda, sino por rentabilidad. Transformamos procesos lentos en sistemas ágiles que permiten a tu equipo enfocarse en lo que realmente importa: la estrategia y el cliente.</p>
+                
+                <div class="bg-emerald-50 p-8 rounded-2xl border border-emerald-100 my-8">
+                    <h4 class="font-bold text-slate-900 text-lg mb-4">Cuestionamientos para tu eficiencia:</h4>
+                    <ul class="list-disc pl-6 text-slate-700 space-y-3">
+                        <li>¿Tu equipo dedica más de 2 horas diarias a tareas manuales que una IA podría resolver en segundos?</li>
+                        <li>¿Estás perdiendo ventas por no responder a tus clientes de manera inmediata y personalizada las 24 horas?</li>
+                        <li>¿Tu negocio utiliza la tecnología para reaccionar al mercado o para anticiparse a los cambios de demanda?</li>
+                        <li>¿Sientes que tienes datos valiosos pero no cuentas con una herramienta que los procese por ti?</li>
+                        <li>¿Crees que la IA es un lujo de grandes empresas mientras tu competencia ya la está explorando?</li>
+                    </ul>
+                </div>
+                
+                <p>Integrar IA en tu PyME es dar un salto de madurez digital que se traduce directamente en una mejor experiencia para el usuario y menores costos operativos.</p>
+                <p class="font-semibold text-slate-900 text-xl border-l-4 border-vegenGreen pl-4 py-2 mt-8">Acompañamos este proceso de forma artesanal, asegurando que cada implementación se adapte a la cultura y necesidades específicas de tu organización.</p>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <a href="index.html#inicio" class="btn-live inline-flex justify-center items-center px-8 py-4 text-base font-bold rounded-xl text-white bg-vegenGreen hover:bg-vegenGreenDark transition shadow-md">
+                    Volver a Inicio e Iniciar Presupuesto
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Modal Popup -->
+    <div id="auditModal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden">
+        <div class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto border border-gray-200 shadow-2xl relative p-6 sm:p-8">
+            <button onclick="closeAuditModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold">✕</button>
+            <div class="text-center mb-6">
+                <span class="text-[10px] font-bold text-vegenOrange uppercase tracking-wider block">Auditoría Gratuita</span>
+                <h3 class="text-2xl font-black text-slate-900 mt-1">Sesión de Análisis sin coste</h3>
+            </div>
+            <form action="https://vegendigital.com/MM/diagnostico_digital/" method="GET" class="space-y-4">
+                <div>
+                    <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Nombre Completo *</label>
+                    <input type="text" required placeholder="Tu nombre" class="w-full p-3 bg-slate-50 border border-gray-200 rounded-xl focus:outline-none focus:border-vegenOrange text-xs text-slate-800">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Email Corporativo *</label>
+                    <input type="email" required placeholder="tu@empresa.com" class="w-full p-3 bg-slate-50 border border-gray-200 rounded-xl focus:outline-none focus:border-vegenOrange text-xs text-slate-800">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Teléfono de contacto *</label>
+                    <input type="tel" required placeholder="+34 600 000 000" class="w-full p-3 bg-slate-50 border border-gray-200 rounded-xl focus:outline-none focus:border-vegenOrange text-xs text-slate-800">
+                </div>
+                <button type="submit" class="w-full bg-vegenOrange text-white font-bold py-3.5 rounded-xl hover:bg-orange-600 transition text-xs uppercase tracking-wider shadow-md">
+                    Agendar mi sesión gratuita
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 12. Footer -->
+    <footer class="bg-vegenSlate text-gray-300 py-16 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="pt-8 text-center text-xs text-slate-500">
+                © 2024 Vegen Digital Consulting. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
