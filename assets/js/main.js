@@ -265,3 +265,10 @@ window.prevTestimonial = function() {
     currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
     updateTestimonial();
 }
+
+window.sendConsultWhatsApp = function(title, description) {
+    const phone = "34617741199";
+    const mensaje = `Me interesa "${title}" donde mencionan que realizan "${description}" y quiero recibir presupuesto más detallado de vuestra propuesta. Gracias!`;
+    const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(mensaje)}`;
+    window.open(url, '_blank');
+}
