@@ -1,47 +1,32 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Inicializar total
-    syncCalculators();
-});
+// Lógica para sincronizar checkboxes mutuamente exclusivos en calculadoras duplicadas
+window.syncCalculators = function() {
+    const checkboxes = document.querySelectorAll('input[name="servicio-item"]');
+    const checkedValues = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.value);
 
-// Sincronización Inteligente de Checkboxes en ambas calculadoras y acordeones
-function syncCalculators() {
-    const checkedValues = [];
-    let total = 0;
-
-    // Extraemos todos los checkboxes marcados
-    const checkboxes = document.querySelectorAll('input[name="servicio-item"]:checked');
+    // Desmarcar todos y volver a marcar solo los necesarios para mantener sincronía visual
     checkboxes.forEach(cb => {
-        checkedValues.push(cb.value);
-    });
-
-    // Sincronizamos las copias de los checkboxes en todo el DOM
-    const allCheckboxes = document.querySelectorAll('input[name="servicio-item"]');
-    allCheckboxes.forEach(cb => {
         cb.checked = checkedValues.includes(cb.value);
     });
 
-    // Calculamos el valor final sobre valores únicos
-    const uniqueChecked = document.querySelectorAll('input[name="servicio-item"]:checked');
-    const uniqueValues = new Set();
+    // Calcular y actualizar Total
+    let total = 0;
+    const uniqueValues = new Set(checkedValues); // Evitar sumar duplicados
     
-    uniqueChecked.forEach(cb => {
-        uniqueValues.add(JSON.stringify({ value: cb.value, cost: cb.getAttribute('data-cost') }));
+    uniqueValues.forEach(val => {
+        const representativeCb = document.querySelector(`input[name="servicio-item"][value="${val}"]`);
+        if(representativeCb) {
+            total += parseFloat(representativeCb.getAttribute('data-cost') || 0);
+        }
     });
 
-    uniqueValues.forEach(itemStr => {
-        const item = JSON.parse(itemStr);
-        total += parseFloat(item.cost);
+    // Actualizar todos los visores de total
+    const totalDisplays = document.querySelectorAll('[id^="liveTotal"]');
+    totalDisplays.forEach(display => {
+        display.innerText = total;
     });
-
-    // Actualizamos los contadores visuales (Hero y Bloque Final)
-    const liveTotalEl = document.getElementById('liveTotal');
-    const finalTotalEl = document.getElementById('finalTotal');
-    
-    if(liveTotalEl) liveTotalEl.innerText = total;
-    if(finalTotalEl) finalTotalEl.innerText = total;
 }
 
-// Lógica de Acordeones (Calculadora)
+// Lógica de Acordeones de la Calculadora (Mutuamente Exclusivos)
 window.toggleCalcAccordion = function(id) {
     const content = document.getElementById(`content-${id}`);
     const icon = document.getElementById(`icon-${id}`);
@@ -161,6 +146,22 @@ window.sendWhatsAppEstimate = function(source) {
     window.open(url, '_blank');
 }
 
+// Envío de consulta directa desde servicios (Los botones "Consultar")
+window.sendConsultWhatsApp = function(title, description) {
+    const phone = "34617741199";
+    const mensaje = `Me interesa "${title}" donde mencionan que realizan "${description}" y quiero recibir presupuesto más detallado de vuestra propuesta. Gracias!`;
+    const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(mensaje)}`;
+    window.open(url, '_blank');
+}
+
+// Envío de interés por plan directamente por WhatsApp (Para la home)
+window.sendPlanWhatsApp = function(planName) {
+    const phone = "34617741199";
+    const mensaje = `Hola Vegen Digital 👋, me interesa el plan de mantenimiento "${planName}". Me gustaría recibir más detalles para contratar.`;
+    const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(mensaje)}`;
+    window.open(url, '_blank');
+}
+
 // Modales de Auditoría y Presupuesto
 window.openAuditModal = function() {
     const modal = document.getElementById('auditModal');
@@ -174,12 +175,42 @@ window.closeAuditModal = function() {
 
 window.openBudgetModal = function() {
     const modal = document.getElementById('budgetModal');
-    if(modal) modal.classList.remove('hidden');
+    if(modal) {
+        modal.classList.remove('hidden');
+    } else {
+        // Fallback for index.html where the calculator is inline in the hero section
+        const heroCalc = document.getElementById('heroCalculator');
+        if (heroCalc) {
+            heroCalc.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
 }
 
 window.closeBudgetModal = function() {
     const modal = document.getElementById('budgetModal');
     if(modal) modal.classList.add('hidden');
+}
+
+window.openBudgetModalAndSelect = function(accordionId, serviceName) {
+    openBudgetModal();
+    
+    // Si estamos en una página sin modal (como index.html), busca el acordeón en la vista general
+    const container = document.getElementById('budgetModal') || document;
+    
+    // Expandir el acordeón
+    const accordionBtn = container.querySelector(`[onclick="toggleCalcAccordion('${accordionId}')"]`);
+    const contentDiv = container.querySelector(`#content-${accordionId}`);
+    
+    if (accordionBtn && contentDiv && contentDiv.classList.contains('hidden')) {
+        toggleCalcAccordion(accordionId);
+    }
+
+    // Buscar y marcar el checkbox
+    const checkbox = container.querySelector(`input[name="servicio-item"][value="${serviceName}"]`);
+    if (checkbox && !checkbox.checked) {
+        checkbox.checked = true;
+        syncCalculators(); // Actualizar el total
+    }
 }
 
 // Cerrar al hacer clic fuera del contenido
@@ -200,19 +231,19 @@ const testimonials = [
         quote: '"Antes de Vegen Digital, las comandas físicas y el inventario de almacén eran un dolor de cabeza diario. Su integración con TPV unificó todo y ahora podemos delegar la gestión con absoluta confianza."',
         author: 'Lucía Martínez',
         company: 'Propietaria de Grupo Hostelería L.M.',
-        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400'
+        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120'
     },
     {
         quote: '"Logramos automatizar la lectura de facturas recibidas y la reconciliación con nuestro ERP. Nos ahorra al menos 15 horas de gestión administrativa a la semana y cero errores humanos."',
         author: 'Carlos Mendoza',
         company: 'Director Financiero en Soluciones Logísticas S.L.',
-        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400'
+        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=120'
     },
     {
         quote: '"Nuestras campañas de adquisición en Google Ads ahora son 100% trazables. Sabemos exactamente qué euro invertido se convierte en un cliente recurrente. Excelente servicio."',
         author: 'Marta Ruiz',
         company: 'Fundadora de E-commerce FreshSkin',
-        avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400'
+        avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=120'
     },
     {
         quote: '"La optimización de nuestra agenda y sistema de reservas nos permitió aumentar nuestra ocupación en un 35% sin necesidad de contratar más personal para atención telefónica."',
@@ -264,11 +295,4 @@ window.nextTestimonial = function() {
 window.prevTestimonial = function() {
     currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
     updateTestimonial();
-}
-
-window.sendConsultWhatsApp = function(title, description) {
-    const phone = "34617741199";
-    const mensaje = `Me interesa "${title}" donde mencionan que realizan "${description}" y quiero recibir presupuesto más detallado de vuestra propuesta. Gracias!`;
-    const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(mensaje)}`;
-    window.open(url, '_blank');
 }
