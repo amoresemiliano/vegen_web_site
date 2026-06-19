@@ -10,8 +10,8 @@
             theme: {
                 extend: {
                     colors: {
-                        vegenGreen: '#10B981',
-                        vegenGreenDark: '#047857',
+                        vegenGreen: '#32CD32',
+                        vegenGreenDark: '#228B22',
                         vegenSlate: '#1E293B',
                         vegenOrange: '#EA580C',
                         vegenLight: '#FAFAFA'
@@ -24,24 +24,17 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased scroll-smooth">
 
-
-    <!-- 1. Mini Banner Superior (Híbrida) -->
+    <!-- 1. Mini Banner Superior -->
     <div class="bg-vegenSlate text-center py-2 px-4 text-xs font-bold text-white tracking-wider uppercase relative z-50">
         🔥 Solicita hoy tu <span class="text-vegenGreen">Auditoría de Sistemas 100% Gratuita</span>. Cupos limitados para este mes.
     </div>
 
-    <!-- 2. Header / Navbar (Sticky con botones de navegación adicionales) -->
+    <!-- 2. Header / Navbar -->
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-150">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Branding con el Isotipo de la Hoja -->
+            <!-- Branding con Logo PNG -->
             <a href="index.html#inicio" class="flex items-center space-x-2">
-                <!-- Sprout Icon SVG (La Hojita de Vegen) -->
-                <svg class="w-8 h-8 text-vegenGreen flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22V12" />
-                    <path d="M12 12C12 7.58172 8.41828 4 4 4C4 8.41828 7.58172 12 12 12Z" fill="currentColor" fill-opacity="0.2" />
-                    <path d="M12 12C12 7.58172 15.5817 4 20 4C20 8.41828 16.4183 12 12 12Z" fill="currentColor" fill-opacity="0.2" />
-                </svg>
-                <span class="text-xl font-black text-slate-900 tracking-tight">Vegen <span class="text-slate-500 font-medium">Digital</span></span>
+                <img src="assets/images/logo_vegen_negativo.png" alt="Vegen Digital Logo" class="h-20 w-auto object-contain">
             </a>
 
             <!-- Menú de Navegación -->
@@ -50,8 +43,7 @@
                 <a href="index.html#servicios" class="hover:text-vegenGreen transition">Servicios</a>
                 <a href="index.html#por-que" class="hover:text-vegenGreen transition">Nosotros</a>
                 <a href="index.html#planes" class="hover:text-vegenGreen transition">Planes</a>
-                <a href="contacto.html" class="hover:text-vegenGreen transition text-vegenGreenDark">Presupuesto</a>
-                
+                <button onclick="openBudgetModal()" class="hover:text-vegenGreen transition text-vegenGreenDark focus:outline-none">Presupuesto</button>
                 <a href="contacto.html" class="hover:text-vegenGreen transition">Contacto</a>
             </nav>
 
@@ -64,12 +56,11 @@
         </div>
     </header>
 
-    <!-- 3. Hero Section Split: Clara + Presupuestador Robusto -->
+    <!-- 3. Hero Section Split -->
     <section id="inicio" class="py-12 lg:py-20 bg-gradient-to-b from-emerald-50/40 to-transparent">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
-                <!-- Left Column (Texto Clara con fuerza de Híbrida) -->
                 <div class="lg:col-span-6 space-y-6">
                     <span class="inline-block bg-vegenGreen/10 text-vegenGreenDark text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full">
                         Ingeniería Estratégica para PyMEs
@@ -82,7 +73,7 @@
                     </p>
                     <div class="flex flex-col sm:flex-row gap-3 pt-2">
                         <a href="index.html#servicios" class="btn-live inline-flex justify-center items-center px-6 py-3 text-sm font-bold rounded-xl text-white bg-vegenSlate hover:bg-slate-800 transition shadow-md">
-                            Explorar Nuestros 4 Servicios
+                            Explorar Nuestros Pilares
                         </a>
                         <a href="#heroCalculator" class="btn-live inline-flex justify-center items-center px-6 py-3 text-sm font-bold rounded-xl text-slate-700 bg-white border border-gray-200 hover:bg-gray-50 transition shadow-sm">
                             Ir al Presupuestador
@@ -90,7 +81,7 @@
                     </div>
                 </div>
 
-                <!-- Right Column (Presupuestador Robusto en Hero) -->
+                <!-- Presupuestador Robusto en Hero -->
                 <div class="lg:col-span-6 bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-200">
                     <div class="text-center mb-6">
                         <span class="inline-block bg-emerald-50 text-vegenGreenDark text-[10px] font-bold uppercase px-2.5 py-1 rounded-full mb-1">Presupuestador Inteligente</span>
@@ -196,7 +187,6 @@
                             </div>
                         </div>
 
-                        <!-- Campos Adicionales QDQ/Cosmia -->
                         <div class="grid grid-cols-2 gap-2 pt-1">
                             <select id="tipoNegocio" class="p-2.5 bg-gray-50 border border-gray-200 rounded-lg text-slate-700 text-xs focus:outline-none">
                                 <option value="Comercio local">Comercio local</option>
@@ -205,13 +195,13 @@
                                 <option value="Servicios Profesionales">Servicios Profesionales</option>
                             </select>
                             <select id="volumen" class="p-2.5 bg-gray-50 border border-gray-200 rounded-lg text-slate-700 text-xs focus:outline-none">
-                                <option value="Menos de 100k">Facturación < 100k€</option>
-                                <option value="100k a 500k">Facturación 100k-500k€</option>
-                                <option value="Más de 500k">Facturación > 500k€</option>
+                                <option value="Menos de 100k">Facturación anual < 100k€</option>
+                                <option value="100k a 500k">Facturación anual 100k-500k€</option>
+                                <option value="Más de 500k">Facturación anual > 500k€</option>
                             </select>
                         </div>
 
-                        <!-- Live Total & Submit button -->
+                        <!-- Live Total & Action button -->
                         <div class="p-4 bg-emerald-50 rounded-xl flex items-center justify-between border border-emerald-100 mt-4">
                             <div>
                                 <span class="text-[9px] text-slate-500 font-bold uppercase block">Inversión Estimada</span>
@@ -223,7 +213,6 @@
                         </div>
                     </form>
                 </div>
-
             </div>
         </div>
     </section>
@@ -234,7 +223,6 @@
             <span class="text-[10px] font-bold text-slate-400 tracking-wider uppercase block">Proyectos e integraciones bajo estándares de alta calidad</span>
         </div>
         <div class="w-full flex overflow-hidden group">
-            <!-- Contenedor animado doble para un efecto sin cortes -->
             <div class="flex space-x-12 animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] min-w-max pr-12">
                 <span class="font-extrabold text-slate-300 text-base uppercase select-none">Generalitat Valenciana</span>
                 <span class="font-extrabold text-slate-300 text-base uppercase select-none">ESIC Business School</span>
@@ -258,7 +246,7 @@
         </div>
     </section>
 
-    <!-- 5. Por Qué Trabajar con Vegen Digital (Cosmia Style con Métricas) -->
+    <!-- 5. Por Qué Trabajar con Vegen Digital (Cosmia Style) -->
     <section id="por-que" class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -266,33 +254,31 @@
                 <p class="mt-3 text-slate-500 text-sm sm:text-base">Estructuramos tu operativa con tecnología práctica, retorno medible y el acompañamiento que necesitas.</p>
             </div>
             
-            <!-- Cards de propuesta -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                <div class="p-6 bg-white rounded-2xl border border-gray-150 shadow-sm hover:scale-[1.03] transition-transform duration-300 cursor-default">
+                <div class="p-6 bg-white rounded-2xl border border-gray-150 shadow-sm hover:scale-105 hover:-rotate-1 hover:shadow-xl hover:shadow-vegenGreen/10 transition-all duration-300 cursor-pointer">
                     <span class="text-vegenGreen font-black text-2xl">01</span>
                     <h3 class="font-bold text-slate-900 mt-2 mb-1">Tecnología Útil</h3>
                     <p class="text-xs text-slate-500 leading-relaxed">No implementamos herramientas complejas por capricho; estructuramos lo que tu PyME necesita para crecer.</p>
                 </div>
-                <div class="p-6 bg-white rounded-2xl border border-gray-150 shadow-sm hover:scale-[1.03] transition-transform duration-300 cursor-default">
+                <div class="p-6 bg-white rounded-2xl border border-gray-150 shadow-sm hover:scale-105 hover:-rotate-1 hover:shadow-xl hover:shadow-vegenGreen/10 transition-all duration-300 cursor-pointer">
                     <span class="text-vegenGreen font-black text-2xl">02</span>
                     <h3 class="font-bold text-slate-900 mt-2 mb-1">Sin Complicaciones</h3>
                     <p class="text-xs text-slate-500 leading-relaxed">Nuestra consultoría asume el trabajo de integración pesado para que tu equipo siga operando sin detenerse.</p>
                 </div>
-                <div class="p-6 bg-white rounded-2xl border border-gray-150 shadow-sm hover:scale-[1.03] transition-transform duration-300 cursor-default">
+                <div class="p-6 bg-white rounded-2xl border border-gray-150 shadow-sm hover:scale-105 hover:-rotate-1 hover:shadow-xl hover:shadow-vegenGreen/10 transition-all duration-300 cursor-pointer">
                     <span class="text-vegenGreen font-black text-2xl">03</span>
                     <h3 class="font-bold text-slate-900 mt-2 mb-1">Análisis de Retorno</h3>
                     <p class="text-xs text-slate-500 leading-relaxed">Trazamos la rentabilidad de cada proceso. Despídete de las decisiones tomadas únicamente por intuición.</p>
                 </div>
-                <div class="p-6 bg-white rounded-2xl border border-gray-150 shadow-sm hover:scale-[1.03] transition-transform duration-300 cursor-default">
+                <div class="p-6 bg-white rounded-2xl border border-gray-150 shadow-sm hover:scale-105 hover:-rotate-1 hover:shadow-xl hover:shadow-vegenGreen/10 transition-all duration-300 cursor-pointer">
                     <span class="text-vegenGreen font-black text-2xl">04</span>
                     <h3 class="font-bold text-slate-900 mt-2 mb-1">Precios Accesibles</h3>
                     <p class="text-xs text-slate-500 leading-relaxed">Planes y presupuestos claros y realistas orientados estrictamente a la realidad económica de la PyME.</p>
                 </div>
             </div>
 
-            <!-- Métricas de Referencia (Inspirado en Cosmia) -->
+            <!-- Métricas de Referencia -->
             <div class="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm relative overflow-hidden">
-                <!-- Imagen decorativa difuminada en el fondo (QDQ/Cosmia balance) -->
                 <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2850" class="absolute inset-0 w-full h-full object-cover opacity-5" alt="Equipo Vegen Digital">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center relative z-10">
                     <div>
@@ -314,83 +300,73 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- 6. Nuestros Servicios de Digitalización (Estructura de Tarjetas) -->
+    </section> 
+    
+    <!-- 6. Nuestros Servicios de Digitalización -->
     <section id="servicios" class="py-20 bg-white border-y border-gray-150">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-black text-slate-900 tracking-tight sm:text-4xl">Nuestros 4 Servicios Principales</h2>
+                <h2 class="text-3xl font-black text-slate-900 tracking-tight sm:text-4xl">Nuestros 4 Pilares Principales</h2>
                 <p class="mt-3 text-slate-500 text-sm sm:text-base">Haz clic para ver el detalle en profundidad de cada área.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                
                 <!-- Servicio 1: Marketing -->
-                <div class="bg-slate-50 rounded-2xl border border-gray-150 p-8 hover:shadow-lg transition flex flex-col justify-between">
+                <a href="marketing.html" class="block bg-slate-50 rounded-2xl border border-gray-150 p-8 hover:shadow-lg transition flex flex-col justify-between group cursor-pointer h-full">
                     <div>
-                        <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-vegenGreen">
-                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" /></svg>
-                        </div>
-                        <h3 class="font-extrabold text-slate-900 text-lg mb-2">Marketing & Comunicación</h3>
+                        <h3 class="font-extrabold text-slate-900 text-lg mb-2 flex items-center">
+                            <div class="w-8 h-8 bg-white rounded-lg shadow-sm flex items-center justify-center mr-3 text-vegenGreen">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" /></svg>
+                            </div>
+                            Marketing & Comunicación
+                        </h3>
                         <p class="text-xs text-slate-500 leading-relaxed">Conecta la esencia singular de tu PyME con las expectativas reales de tu audiencia mediante diagnósticos profundos.</p>
                     </div>
-                    <a href="marketing.html" class="mt-6 inline-flex items-center text-xs font-bold text-vegenGreen hover:text-vegenGreenDark transition">
-                        Ver detalle
-                        <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                    </a>
-                </div>
+                </a>
 
                 <!-- Servicio 2: IA -->
-                <div class="bg-slate-50 rounded-2xl border border-gray-150 p-8 hover:shadow-lg transition flex flex-col justify-between">
+                <a href="ia.html" class="block bg-slate-50 rounded-2xl border border-gray-150 p-8 hover:shadow-lg transition flex flex-col justify-between group cursor-pointer h-full">
                     <div>
-                        <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-vegenGreen">
-                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                        </div>
-                        <h3 class="font-extrabold text-slate-900 text-lg mb-2">Inteligencia Artificial</h3>
+                        <h3 class="font-extrabold text-slate-900 text-lg mb-2 flex items-center">
+                            <div class="w-8 h-8 bg-white rounded-lg shadow-sm flex items-center justify-center mr-3 text-vegenGreen">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                            </div>
+                            Inteligencia Artificial
+                        </h3>
                         <p class="text-xs text-slate-500 leading-relaxed">Libera el talento humano de tareas repetitivas diseñando flujos de trabajo inteligentes orientados a la rentabilidad.</p>
                     </div>
-                    <a href="ia.html" class="mt-6 inline-flex items-center text-xs font-bold text-vegenGreen hover:text-vegenGreenDark transition">
-                        Ver detalle
-                        <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                    </a>
-                </div>
+                </a>
 
                 <!-- Servicio 3: Datos -->
-                <div class="bg-slate-50 rounded-2xl border border-gray-150 p-8 hover:shadow-lg transition flex flex-col justify-between">
+                <a href="datos.html" class="block bg-slate-50 rounded-2xl border border-gray-150 p-8 hover:shadow-lg transition flex flex-col justify-between group cursor-pointer h-full">
                     <div>
-                        <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-vegenGreen">
-                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
-                        </div>
-                        <h3 class="font-extrabold text-slate-900 text-lg mb-2">Análisis de Datos</h3>
+                        <h3 class="font-extrabold text-slate-900 text-lg mb-2 flex items-center">
+                            <div class="w-8 h-8 bg-white rounded-lg shadow-sm flex items-center justify-center mr-3 text-vegenGreen">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                            </div>
+                            Análisis de Datos
+                        </h3>
                         <p class="text-xs text-slate-500 leading-relaxed">Transformamos el caos de las hojas de cálculo en historias claras que dictan el camino a seguir para tu empresa.</p>
                     </div>
-                    <a href="datos.html" class="mt-6 inline-flex items-center text-xs font-bold text-vegenGreen hover:text-vegenGreenDark transition">
-                        Ver detalle
-                        <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                    </a>
-                </div>
+                </a>
 
                 <!-- Servicio 4: Digitalización -->
-                <div class="bg-slate-50 rounded-2xl border border-gray-150 p-8 hover:shadow-lg transition flex flex-col justify-between">
+                <a href="digitalizacion.html" class="block bg-slate-50 rounded-2xl border border-gray-150 p-8 hover:shadow-lg transition flex flex-col justify-between group cursor-pointer h-full">
                     <div>
-                        <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-vegenGreen">
-                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
-                        </div>
-                        <h3 class="font-extrabold text-slate-900 text-lg mb-2">Digitalización de Empresas</h3>
+                        <h3 class="font-extrabold text-slate-900 text-lg mb-2 flex items-center">
+                            <div class="w-8 h-8 bg-white rounded-lg shadow-sm flex items-center justify-center mr-3 text-vegenGreen">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                            </div>
+                            Digitalización de Empresas
+                        </h3>
                         <p class="text-xs text-slate-500 leading-relaxed">Integramos herramientas y desarrollamos soluciones robustas para que la tecnología sea tu motor, no un obstáculo.</p>
                     </div>
-                    <a href="digitalizacion.html" class="mt-6 inline-flex items-center text-xs font-bold text-vegenGreen hover:text-vegenGreenDark transition">
-                        Ver detalle
-                        <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                    </a>
-                </div>
-
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- 7. Verticales Comerciales / Sectores (Cosmia Style con Imagenes QDQ Style) -->
+    <!-- 7. Especialidades por Sector -->
     <section class="py-20 bg-slate-50 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-16">
@@ -430,7 +406,7 @@
         </div>
     </section>
 
-    <!-- 8. Planes de Digitalización Estructurados -->
+    <!-- 8. Planes de Digitalización -->
     <section id="planes" class="py-20 bg-white border-y border-gray-150">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -444,8 +420,9 @@
                         <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block">Ideal para comercios locales</span>
                         <h3 class="font-extrabold text-slate-900 text-xl mt-1">Estructura Básica</h3>
                         <div class="my-6">
-                            <span class="text-3xl font-black text-slate-900">950€</span>
-                            <span class="text-xs text-slate-400 font-semibold">/ Pago Único</span>
+                            <span class="text-3xl font-black text-slate-900">99€</span>
+                            <span class="text-xs text-slate-400 font-semibold">/ Fee Mensual</span>
+                            <span class="block text-[10px] text-vegenGreen font-bold mt-1 uppercase tracking-wider">Sin permanencia</span>
                         </div>
                         <ul class="space-y-3 text-xs text-slate-600 border-t border-gray-200 pt-6">
                             <li>✓ Desarrollo Web Profesional a medida</li>
@@ -456,15 +433,16 @@
                     <a href="contacto.html" class="btn-live mt-8 block text-center py-3 bg-white border border-gray-200 text-xs font-bold rounded-xl text-slate-700 hover:bg-gray-50 transition">Seleccionar Plan</a>
                 </div>
 
-                <!-- Plan 2 (Recomendado) -->
+                <!-- Plan 2 -->
                 <div class="bg-white p-8 rounded-2xl border-2 border-vegenGreen flex flex-col justify-between relative shadow-lg">
                     <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-vegenGreen text-white text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full">Recomendado</span>
                     <div>
                         <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest block">Ideal para empresas en crecimiento</span>
                         <h3 class="font-extrabold text-slate-900 text-xl mt-1">Crecimiento Integrado</h3>
                         <div class="my-6">
-                            <span class="text-3xl font-black text-slate-900">2.450€</span>
-                            <span class="text-xs text-slate-400 font-semibold">/ Pago Único</span>
+                            <span class="text-3xl font-black text-slate-900">149€</span>
+                            <span class="text-xs text-slate-400 font-semibold">/ Fee Mensual</span>
+                            <span class="block text-[10px] text-vegenGreen font-bold mt-1 uppercase tracking-wider">Sin permanencia</span>
                         </div>
                         <ul class="space-y-3 text-xs text-slate-600 border-t border-gray-200 pt-6">
                             <li>✓ Desarrollo Web / E-commerce Avanzado</li>
@@ -482,8 +460,9 @@
                         <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block">Ideal para operativas complejas</span>
                         <h3 class="font-extrabold text-slate-900 text-xl mt-1">Estructura Flujo / IA</h3>
                         <div class="my-6">
-                            <span class="text-3xl font-black text-slate-900">4.800€</span>
-                            <span class="text-xs text-slate-400 font-semibold">/ Pago Único</span>
+                            <span class="text-3xl font-black text-slate-900">249€</span>
+                            <span class="text-xs text-slate-400 font-semibold">/ Fee Mensual</span>
+                            <span class="block text-[10px] text-vegenGreen font-bold mt-1 uppercase tracking-wider">Sin permanencia</span>
                         </div>
                         <ul class="space-y-3 text-xs text-slate-600 border-t border-gray-200 pt-6">
                             <li>✓ Todo lo del plan Crecimiento Integrado</li>
@@ -498,17 +477,15 @@
         </div>
     </section>
 
-    <!-- 9. Slider de Testimonios / Opiniones de Clientes -->
+    <!-- 9. Slider de Testimonios -->
     <section class="py-20 bg-slate-50 border-t border-gray-150">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">Opinión de las PyMEs que confían en nosotros</h2>
             </div>
             
-            <!-- Slider container -->
             <div class="relative bg-white border border-gray-150 p-8 sm:p-12 rounded-2xl shadow-sm overflow-hidden flex items-center justify-between">
-                <!-- Navigation arrow left -->
-                <button onclick="prevTestimonial()" class="hidden md:flex p-3 border border-gray-200 rounded-full hover:border-vegenGreen hover:bg-emerald-50 text-slate-400 hover:text-vegenGreen transition focus:outline-none absolute left-4 z-10 bg-white">←</button>
+                <button onclick="prevTestimonial()" class="hidden md:flex p-3 border border-gray-200 rounded-full hover:border-vegenGreen hover:bg-emerald-50 text-slate-400 hover:text-vegenGreen transition focus:outline-none absolute left-4 z-10 bg-white font-bold text-xl">&lt;</button>
                 
                 <div id="testimonial-container" class="transition-opacity duration-300 w-full px-0 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     <div class="order-2 md:order-1 text-center md:text-left">
@@ -525,13 +502,11 @@
                     </div>
                 </div>
 
-                <!-- Navigation arrow right -->
-                <button onclick="nextTestimonial()" class="hidden md:flex p-3 border border-gray-200 rounded-full hover:border-vegenGreen hover:bg-emerald-50 text-slate-400 hover:text-vegenGreen transition focus:outline-none absolute right-4 z-10 bg-white">→</button>
+                <button onclick="nextTestimonial()" class="hidden md:flex p-3 border border-gray-200 rounded-full hover:border-vegenGreen hover:bg-emerald-50 text-slate-400 hover:text-vegenGreen transition focus:outline-none absolute right-4 z-10 bg-white font-bold text-xl">&gt;</button>
                 
-                <!-- Mobile navigation arrows -->
                 <div class="flex md:hidden justify-center space-x-4 mt-8 w-full order-3 absolute bottom-4 left-0">
-                    <button onclick="prevTestimonial()" class="p-2 border border-gray-200 rounded-full hover:border-vegenGreen text-slate-400 hover:text-vegenGreen transition bg-white">←</button>
-                    <button onclick="nextTestimonial()" class="p-2 border border-gray-200 rounded-full hover:border-vegenGreen text-slate-400 hover:text-vegenGreen transition bg-white">→</button>
+                    <button onclick="prevTestimonial()" class="p-2 border border-gray-200 rounded-full hover:border-vegenGreen text-slate-400 hover:text-vegenGreen transition bg-white font-bold text-lg">&lt;</button>
+                    <button onclick="nextTestimonial()" class="p-2 border border-gray-200 rounded-full hover:border-vegenGreen text-slate-400 hover:text-vegenGreen transition bg-white font-bold text-lg">&gt;</button>
                 </div>
             </div>
         </div>
@@ -540,56 +515,52 @@
     <!-- 11. Modal Popup de Auditoría Gratis -->
     <div id="auditModal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden">
         <div class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto border border-gray-200 shadow-2xl relative p-6 sm:p-8">
-            <!-- Close button -->
             <button onclick="closeAuditModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold">✕</button>
-            
             <div class="text-center mb-6">
                 <span class="text-[10px] font-bold text-vegenOrange uppercase tracking-wider block">Auditoría Gratuita</span>
                 <h3 class="text-2xl font-black text-slate-900 mt-1">Sesión de Análisis sin coste</h3>
-                <p class="text-xs text-slate-500 mt-1">Rellena los datos para que nuestro equipo técnico agende vuestro diagnóstico.</p>
             </div>
-            <form action="https://vegendigital.com/MM/diagnostico_digital/" method="GET" class="space-y-4">
+            <form id="auditForm" onsubmit="sendAuditWhatsApp(event)" class="space-y-4">
                 <div>
                     <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Nombre Completo *</label>
-                    <input type="text" required placeholder="Tu nombre" class="w-full p-3 bg-slate-50 border border-gray-200 rounded-xl focus:outline-none focus:border-vegenOrange text-xs text-slate-800">
+                    <input type="text" id="auditName" required placeholder="Tu nombre" class="w-full p-3 bg-slate-50 border border-gray-200 rounded-xl focus:outline-none focus:border-vegenOrange text-xs text-slate-800">
                 </div>
                 <div>
                     <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Email Corporativo *</label>
-                    <input type="email" required placeholder="tu@empresa.com" class="w-full p-3 bg-slate-50 border border-gray-200 rounded-xl focus:outline-none focus:border-vegenOrange text-xs text-slate-800">
+                    <input type="email" id="auditEmail" required placeholder="tu@empresa.com" class="w-full p-3 bg-slate-50 border border-gray-200 rounded-xl focus:outline-none focus:border-vegenOrange text-xs text-slate-800">
                 </div>
                 <div>
                     <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Teléfono de contacto *</label>
-                    <input type="tel" required placeholder="+34 600 000 000" class="w-full p-3 bg-slate-50 border border-gray-200 rounded-xl focus:outline-none focus:border-vegenOrange text-xs text-slate-800">
+                    <input type="tel" id="auditPhone" required placeholder="+34 600 000 000" class="w-full p-3 bg-slate-50 border border-gray-200 rounded-xl focus:outline-none focus:border-vegenOrange text-xs text-slate-800">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Servicio de Interés (Ctrl/Cmd para múltiple)</label>
+                    <select id="auditServices" multiple class="w-full p-3 bg-slate-50 border border-gray-200 rounded-xl focus:outline-none focus:border-vegenOrange text-xs text-slate-800 h-24">
+                        <option value="Automatización IA">Automatización IA</option>
+                        <option value="Desarrollo de Sistemas">Desarrollo de Sistemas</option>
+                        <option value="Análisis de Datos">Análisis de Datos</option>
+                        <option value="Marketing Digital">Marketing Digital</option>
+                    </select>
                 </div>
                 <button type="submit" class="w-full bg-vegenOrange text-white font-bold py-3.5 rounded-xl hover:bg-orange-600 transition text-xs uppercase tracking-wider shadow-md">
-                    Agendar mi sesión gratuita
+                    Agendar por WhatsApp
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- 12. Footer (QDQ Style con Sitemap y RRSS Robustas) -->
-    <footer id="contacto" class="bg-vegenSlate text-gray-300 py-16 border-t border-slate-800">
+    <!-- 12. Footer -->
+    <footer class="bg-vegenSlate text-gray-300 py-16 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-slate-800">
-                
-                <!-- Branding column -->
                 <div class="space-y-4">
                     <div class="flex items-center space-x-2">
-                        <!-- Sprout Icon SVG (La Hojita de Vegen) -->
-                        <svg class="w-6 h-6 text-vegenGreen flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 22V12" />
-                            <path d="M12 12C12 7.58172 8.41828 4 4 4C4 8.41828 7.58172 12 12 12Z" fill="currentColor" fill-opacity="0.2" />
-                            <path d="M12 12C12 7.58172 15.5817 4 20 4C20 8.41828 16.4183 12 12 12Z" fill="currentColor" fill-opacity="0.2" />
-                        </svg>
-                        <span class="text-lg font-black text-white tracking-tight">Vegen <span class="text-slate-400 font-medium">Digital</span></span>
+                        <img src="assets/images/logo_vegen_negativo.png" alt="Vegen Digital Logo" class="h-8 w-auto object-contain brightness-0 invert">
                     </div>
                     <p class="text-xs text-slate-400 leading-relaxed">
                         Sistematizamos y digitalizamos la operativa de las PyMEs mediante integraciones estables y psicología aplicada de mercado.
                     </p>
                 </div>
-
-                <!-- Sitemap: Servicios -->
                 <div>
                     <h4 class="font-extrabold text-xs text-white uppercase tracking-wider mb-4">Servicios Básicos</h4>
                     <ul class="space-y-2 text-xs text-slate-400">
@@ -599,37 +570,28 @@
                         <li><a href="index.html#servicios" class="hover:text-white transition">Marketing Digital</a></li>
                     </ul>
                 </div>
-
-                <!-- Sitemap: Compañía -->
                 <div>
                     <h4 class="font-extrabold text-xs text-white uppercase tracking-wider mb-4">Nuestra Agencia</h4>
                     <ul class="space-y-2 text-xs text-slate-400">
                         <li><a href="index.html#por-que" class="hover:text-white transition">¿Por qué elegirnos?</a></li>
                         <li><a href="index.html#planes" class="hover:text-white transition">Planes estructurados</a></li>
-                        <li><a href="contacto.html" class="hover:text-white transition">Presupuesto / Contacto</a></li>
+                        <li><a href="contacto.html" class="hover:text-white transition">Calculadora Exprés</a></li>
                         <li><a href="https://vegendigital.com/MM/" class="hover:text-white transition" target="_blank">Nuestra Intranet /MM/</a></li>
                     </ul>
                 </div>
-
-                <!-- Contact & RRSS Robustas -->
                 <div class="space-y-4">
                     <h4 class="font-extrabold text-xs text-white uppercase tracking-wider">Contacto</h4>
-                    <p class="text-xs text-slate-400">Calle Augusto Figueroa 9, 28004, Madrid.</p>
-                    <p class="text-xs text-slate-400">Email: vegendigital@gmail.com</p>
-                    
-                    <!-- RRSS Robustas -->
+                    <p class="text-xs text-slate-400">Ubicación: Madrid (28004), España</p>
+                    <p class="text-xs text-slate-400">Email: info@vegendigital.com</p>
                     <div class="flex space-x-3 pt-2">
-                        <!-- LinkedIn -->
                         <a href="https://linkedin.com" target="_blank" class="p-2 bg-slate-800 rounded-lg hover:bg-vegenGreen hover:text-white text-slate-400 transition shadow" aria-label="LinkedIn">
                             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                         </a>
-                        <!-- Instagram -->
                         <a href="https://instagram.com" target="_blank" class="p-2 bg-slate-800 rounded-lg hover:bg-vegenGreen hover:text-white text-slate-400 transition shadow" aria-label="Instagram">
                             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                         </a>
                     </div>
                 </div>
-
             </div>
             <div class="pt-8 text-center text-xs text-slate-500">
                 © 2024 Vegen Digital Consulting. Todos los derechos reservados.
@@ -644,4 +606,4 @@
 
 <script src="assets/js/main.js"></script>
 </body>
-</html>   
+</html>

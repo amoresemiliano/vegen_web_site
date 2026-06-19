@@ -10,8 +10,8 @@
             theme: {
                 extend: {
                     colors: {
-                        vegenGreen: '#10B981',
-                        vegenGreenDark: '#047857',
+                        vegenGreen: '#32CD32',
+                        vegenGreenDark: '#228B22',
                         vegenSlate: '#1E293B',
                         vegenOrange: '#EA580C',
                         vegenLight: '#FAFAFA'
@@ -24,7 +24,7 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased scroll-smooth">
 
-    <!-- 1. Mini Banner Superior (Híbrida) -->
+    <!-- 1. Mini Banner Superior -->
     <div class="bg-vegenSlate text-center py-2 px-4 text-xs font-bold text-white tracking-wider uppercase relative z-50">
         🔥 Solicita hoy tu <span class="text-vegenGreen">Auditoría de Sistemas 100% Gratuita</span>. Cupos limitados para este mes.
     </div>
@@ -32,15 +32,8 @@
     <!-- 2. Header / Navbar -->
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-150">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Branding con el Isotipo de la Hoja -->
             <a href="index.html#inicio" class="flex items-center space-x-2">
-                <!-- Sprout Icon SVG (La Hojita de Vegen) -->
-                <svg class="w-8 h-8 text-vegenGreen flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22V12" />
-                    <path d="M12 12C12 7.58172 8.41828 4 4 4C4 8.41828 7.58172 12 12 12Z" fill="currentColor" fill-opacity="0.2" />
-                    <path d="M12 12C12 7.58172 15.5817 4 20 4C20 8.41828 16.4183 12 12 12Z" fill="currentColor" fill-opacity="0.2" />
-                </svg>
-                <span class="text-xl font-black text-slate-900 tracking-tight">Vegen <span class="text-slate-500 font-medium">Digital</span></span>
+                <img src="assets/images/logo_vegen_negativo.png" alt="Vegen Digital Logo" class="h-10 w-auto object-contain">
             </a>
 
             <!-- Menú de Navegación -->
@@ -49,11 +42,10 @@
                 <a href="index.html#servicios" class="hover:text-vegenGreen transition">Servicios</a>
                 <a href="index.html#por-que" class="hover:text-vegenGreen transition">Nosotros</a>
                 <a href="index.html#planes" class="hover:text-vegenGreen transition">Planes</a>
-                <a href="contacto.html" class="hover:text-vegenGreen transition text-vegenGreenDark">Presupuesto</a>
+                <button onclick="openBudgetModal()" class="hover:text-vegenGreen transition text-vegenGreenDark focus:outline-none">Presupuesto</button>
                 <a href="contacto.html" class="hover:text-vegenGreen transition">Contacto</a>
             </nav>
 
-            <!-- CTA Orange de Auditoría Gratis -->
             <div class="flex items-center space-x-3">
                 <button onclick="openAuditModal()" class="btn-orange-live bg-vegenOrange text-white font-bold text-xs px-5 py-2.5 rounded-xl transition shadow-md">
                     Auditoría Gratis
@@ -84,7 +76,7 @@
                             </div>
                             <div>
                                 <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider">Email Directo</span>
-                                <a href="mailto:vegendigital@gmail.com" class="font-bold text-slate-800 hover:text-vegenGreen transition">vegendigital@gmail.com</a>
+                                <a href="mailto:info@vegendigital.com" class="font-bold text-slate-800 hover:text-vegenGreen transition">info@vegendigital.com</a>
                             </div>
                         </div>
                         <div class="flex items-center space-x-4">
@@ -92,37 +84,37 @@
                                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                             </div>
                             <div>
-                                <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider">Oficina Madrid</span>
-                                <span class="font-bold text-slate-800">Calle Augusto Figueroa 9, 28004</span>
+                                <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider">Ubicación</span>
+                                <span class="font-bold text-slate-800">Madrid (28004), España</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Formulario -->
+                <!-- Formulario Contacto -> WhatsApp -->
                 <div class="bg-slate-50 p-8 rounded-2xl border border-gray-200 shadow-md">
-                    <form action="https://vegendigital.com/contacto.html" method="POST" class="space-y-4">
+                    <form id="contactForm" onsubmit="sendContactWhatsApp(event)" class="space-y-4">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1.5">Nombre y Apellido *</label>
-                                <input type="text" name="nombre" required placeholder="Tu nombre" class="w-full p-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-vegenGreen text-sm text-slate-800">
+                                <input type="text" id="contactName" required placeholder="Tu nombre" class="w-full p-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-vegenGreen text-sm text-slate-800">
                             </div>
                             <div>
                                 <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1.5">Teléfono (con prefijo) *</label>
-                                <input type="tel" name="telefono" required placeholder="+34 600 000 000" class="w-full p-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-vegenGreen text-sm text-slate-800">
+                                <input type="tel" id="contactPhone" required placeholder="+34 600 000 000" class="w-full p-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-vegenGreen text-sm text-slate-800">
                             </div>
                         </div>
                         <div>
                             <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1.5">Email Corporativo *</label>
-                            <input type="email" name="email" required placeholder="tu@empresa.com" class="w-full p-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-vegenGreen text-sm text-slate-800">
+                            <input type="email" id="contactEmail" required placeholder="tu@empresa.com" class="w-full p-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-vegenGreen text-sm text-slate-800">
                         </div>
                         <div>
                             <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1.5">Empresa / Sitio Web</label>
-                            <input type="text" name="empresa" placeholder="www.tuempresa.com" class="w-full p-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-vegenGreen text-sm text-slate-800">
+                            <input type="text" id="contactCompany" placeholder="www.tuempresa.com" class="w-full p-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-vegenGreen text-sm text-slate-800">
                         </div>
                         <div>
                             <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1.5">Servicio de interés</label>
-                            <select name="servicio" class="w-full p-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-vegenGreen text-sm text-slate-800">
+                            <select id="contactService" class="w-full p-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-vegenGreen text-sm text-slate-800">
                                 <option value="Automatización IA">Automatización IA</option>
                                 <option value="Desarrollo de Sistemas">Desarrollo de Sistemas</option>
                                 <option value="Análisis de Datos">Análisis de Datos</option>
@@ -132,71 +124,198 @@
                         </div>
                         <div>
                             <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1.5">Cuéntanos sobre tu proyecto *</label>
-                            <textarea name="mensaje" rows="4" required placeholder="¿Cuáles son los principales desafíos actuales de tu negocio?" class="w-full p-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-vegenGreen text-sm text-slate-800"></textarea>
+                            <textarea id="contactMessage" rows="4" required placeholder="¿Cuáles son los principales desafíos actuales de tu negocio?" class="w-full p-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-vegenGreen text-sm text-slate-800"></textarea>
                         </div>
                         <button type="submit" class="btn-live w-full bg-vegenGreen text-white font-bold py-3.5 rounded-xl hover:bg-vegenGreenDark transition text-xs uppercase tracking-wider shadow-md">
-                            Enviar Consulta
+                            Enviar Consulta por WhatsApp
                         </button>
                     </form>
                 </div>
-                
             </div>
         </div>
     </section>
 
+    <!-- Modal Popup de Presupuesto (Incluido en TODAS las subpáginas) -->
+    <div id="budgetModal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden">
+        <div class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto border border-gray-200 shadow-2xl relative p-6 sm:p-8">
+            <button onclick="closeBudgetModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold">✕</button>
+            <div class="text-center mb-6">
+                <span class="text-[10px] font-bold text-vegenGreen uppercase tracking-wider block">Presupuestador Inteligente</span>
+                <h3 class="text-2xl font-black text-slate-900 mt-1">Diseña tu Estructura</h3>
+            </div>
+            
+            <!-- Calculadora (Igual a la de la Home) -->
+            <form id="heroCalculator" class="space-y-4">
+                <div class="space-y-2">
+                    <div class="border border-gray-200 rounded-lg overflow-hidden bg-slate-50">
+                        <button type="button" onclick="toggleCalcAccordion('calc-acc1')" class="w-full text-left px-4 py-3 flex justify-between items-center hover:bg-slate-100 transition focus:outline-none">
+                            <span class="text-xs font-bold text-slate-700 uppercase tracking-wider">Automatización & IA</span>
+                            <span id="icon-calc-acc1" class="text-vegenGreen font-bold">+</span>
+                        </button>
+                        <div id="content-calc-acc1" class="hidden px-4 pb-4 pt-1 border-t border-gray-100 bg-white">
+                            <div class="grid grid-cols-1 gap-2 pt-2">
+                                <label class="flex items-center cursor-pointer group">
+                                    <input type="checkbox" name="servicio-item" value="Facturación OCR" data-cost="900" class="w-4 h-4 text-vegenGreen border-gray-300 rounded focus:ring-vegenGreen" onchange="syncCalculators()">
+                                    <span class="ml-2.5 text-xs font-semibold text-slate-600 group-hover:text-vegenGreenDark transition">Facturación OCR</span>
+                                </label>
+                                <label class="flex items-center cursor-pointer group">
+                                    <input type="checkbox" name="servicio-item" value="Chatbot IA Atención" data-cost="750" class="w-4 h-4 text-vegenGreen border-gray-300 rounded focus:ring-vegenGreen" onchange="syncCalculators()">
+                                    <span class="ml-2.5 text-xs font-semibold text-slate-600 group-hover:text-vegenGreenDark transition">Chatbot IA Atención</span>
+                                </label>
+                                <label class="flex items-center cursor-pointer group">
+                                    <input type="checkbox" name="servicio-item" value="Clasificador Leads" data-cost="600" class="w-4 h-4 text-vegenGreen border-gray-300 rounded focus:ring-vegenGreen" onchange="syncCalculators()">
+                                    <span class="ml-2.5 text-xs font-semibold text-slate-600 group-hover:text-vegenGreenDark transition">Clasificador Leads</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-gray-200 rounded-lg overflow-hidden bg-slate-50">
+                        <button type="button" onclick="toggleCalcAccordion('calc-acc2')" class="w-full text-left px-4 py-3 flex justify-between items-center hover:bg-slate-100 transition focus:outline-none">
+                            <span class="text-xs font-bold text-slate-700 uppercase tracking-wider">Sistemas & Digitalización</span>
+                            <span id="icon-calc-acc2" class="text-vegenGreen font-bold">+</span>
+                        </button>
+                        <div id="content-calc-acc2" class="hidden px-4 pb-4 pt-1 border-t border-gray-100 bg-white">
+                            <div class="grid grid-cols-1 gap-2 pt-2">
+                                <label class="flex items-center cursor-pointer group">
+                                    <input type="checkbox" name="servicio-item" value="Desarrollo Web" data-cost="1200" class="w-4 h-4 text-vegenGreen border-gray-300 rounded focus:ring-vegenGreen" onchange="syncCalculators()">
+                                    <span class="ml-2.5 text-xs font-semibold text-slate-600 group-hover:text-vegenGreenDark transition">Desarrollo Web</span>
+                                </label>
+                                <label class="flex items-center cursor-pointer group">
+                                    <input type="checkbox" name="servicio-item" value="E-Commerce Avanzado" data-cost="2100" class="w-4 h-4 text-vegenGreen border-gray-300 rounded focus:ring-vegenGreen" onchange="syncCalculators()">
+                                    <span class="ml-2.5 text-xs font-semibold text-slate-600 group-hover:text-vegenGreenDark transition">E-Commerce Avanzado</span>
+                                </label>
+                                <label class="flex items-center cursor-pointer group">
+                                    <input type="checkbox" name="servicio-item" value="Integración ERP/CRM" data-cost="1500" class="w-4 h-4 text-vegenGreen border-gray-300 rounded focus:ring-vegenGreen" onchange="syncCalculators()">
+                                    <span class="ml-2.5 text-xs font-semibold text-slate-600 group-hover:text-vegenGreenDark transition">Integración ERP/CRM</span>
+                                </label>
+                                <label class="flex items-center cursor-pointer group">
+                                    <input type="checkbox" name="servicio-item" value="App Interna a Medida" data-cost="3500" class="w-4 h-4 text-vegenGreen border-gray-300 rounded focus:ring-vegenGreen" onchange="syncCalculators()">
+                                    <span class="ml-2.5 text-xs font-semibold text-slate-600 group-hover:text-vegenGreenDark transition">App Interna a Medida</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-gray-200 rounded-lg overflow-hidden bg-slate-50">
+                        <button type="button" onclick="toggleCalcAccordion('calc-acc3')" class="w-full text-left px-4 py-3 flex justify-between items-center hover:bg-slate-100 transition focus:outline-none">
+                            <span class="text-xs font-bold text-slate-700 uppercase tracking-wider">Análisis de Datos</span>
+                            <span id="icon-calc-acc3" class="text-vegenGreen font-bold">+</span>
+                        </button>
+                        <div id="content-calc-acc3" class="hidden px-4 pb-4 pt-1 border-t border-gray-100 bg-white">
+                            <div class="grid grid-cols-1 gap-2 pt-2">
+                                <label class="flex items-center cursor-pointer group">
+                                    <input type="checkbox" name="servicio-item" value="Dashboard NEXUS/FLOW" data-cost="1000" class="w-4 h-4 text-vegenGreen border-gray-300 rounded focus:ring-vegenGreen" onchange="syncCalculators()">
+                                    <span class="ml-2.5 text-xs font-semibold text-slate-600 group-hover:text-vegenGreenDark transition">Dashboard Analítico NEXUS</span>
+                                </label>
+                                <label class="flex items-center cursor-pointer group">
+                                    <input type="checkbox" name="servicio-item" value="Auditoría de Datos" data-cost="800" class="w-4 h-4 text-vegenGreen border-gray-300 rounded focus:ring-vegenGreen" onchange="syncCalculators()">
+                                    <span class="ml-2.5 text-xs font-semibold text-slate-600 group-hover:text-vegenGreenDark transition">Auditoría de Datos</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-gray-200 rounded-lg overflow-hidden bg-slate-50">
+                        <button type="button" onclick="toggleCalcAccordion('calc-acc4')" class="w-full text-left px-4 py-3 flex justify-between items-center hover:bg-slate-100 transition focus:outline-none">
+                            <span class="text-xs font-bold text-slate-700 uppercase tracking-wider">Marketing Digital</span>
+                            <span id="icon-calc-acc4" class="text-vegenGreen font-bold">+</span>
+                        </button>
+                        <div id="content-calc-acc4" class="hidden px-4 pb-4 pt-1 border-t border-gray-100 bg-white">
+                            <div class="grid grid-cols-1 gap-2 pt-2">
+                                <label class="flex items-center cursor-pointer group">
+                                    <input type="checkbox" name="servicio-item" value="Estrategia de Marca" data-cost="950" class="w-4 h-4 text-vegenGreen border-gray-300 rounded focus:ring-vegenGreen" onchange="syncCalculators()">
+                                    <span class="ml-2.5 text-xs font-semibold text-slate-600 group-hover:text-vegenGreenDark transition">Estrategia de Marca</span>
+                                </label>
+                                <label class="flex items-center cursor-pointer group">
+                                    <input type="checkbox" name="servicio-item" value="Campañas de Anuncios" data-cost="500" class="w-4 h-4 text-vegenGreen border-gray-300 rounded focus:ring-vegenGreen" onchange="syncCalculators()">
+                                    <span class="ml-2.5 text-xs font-semibold text-slate-600 group-hover:text-vegenGreenDark transition">Campañas de Anuncios</span>
+                                </label>
+                                <label class="flex items-center cursor-pointer group">
+                                    <input type="checkbox" name="servicio-item" value="Gestión de Redes" data-cost="400" class="w-4 h-4 text-vegenGreen border-gray-300 rounded focus:ring-vegenGreen" onchange="syncCalculators()">
+                                    <span class="ml-2.5 text-xs font-semibold text-slate-600 group-hover:text-vegenGreenDark transition">Gestión de Redes</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2 pt-1">
+                    <select id="tipoNegocio" class="p-2.5 bg-gray-50 border border-gray-200 rounded-lg text-slate-700 text-xs focus:outline-none">
+                        <option value="Comercio local">Comercio local</option>
+                        <option value="E-commerce">E-commerce / Tienda</option>
+                        <option value="Hostelería / Restaurante">Hostelería / Restaurante</option>
+                        <option value="Servicios Profesionales">Servicios Profesionales</option>
+                    </select>
+                    <select id="volumen" class="p-2.5 bg-gray-50 border border-gray-200 rounded-lg text-slate-700 text-xs focus:outline-none">
+                        <option value="Menos de 100k">Facturación anual < 100k€</option>
+                        <option value="100k a 500k">Facturación anual 100k-500k€</option>
+                        <option value="Más de 500k">Facturación anual > 500k€</option>
+                    </select>
+                </div>
+
+                <div class="p-4 bg-emerald-50 rounded-xl flex items-center justify-between border border-emerald-100 mt-4">
+                    <div>
+                        <span class="text-[9px] text-slate-500 font-bold uppercase block">Inversión Estimada</span>
+                        <span class="text-2xl font-black text-slate-900"><span id="liveTotal">0</span>€</span>
+                    </div>
+                    <button type="button" onclick="sendWhatsAppEstimate('hero')" class="btn-live bg-vegenGreen text-white font-bold text-xs px-5 py-3 rounded-lg transition shadow-md">
+                        Enviar por WhatsApp
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- 11. Modal Popup de Auditoría Gratis -->
     <div id="auditModal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden">
         <div class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto border border-gray-200 shadow-2xl relative p-6 sm:p-8">
-            <!-- Close button -->
             <button onclick="closeAuditModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold">✕</button>
-            
             <div class="text-center mb-6">
                 <span class="text-[10px] font-bold text-vegenOrange uppercase tracking-wider block">Auditoría Gratuita</span>
                 <h3 class="text-2xl font-black text-slate-900 mt-1">Sesión de Análisis sin coste</h3>
-                <p class="text-xs text-slate-500 mt-1">Rellena los datos para que nuestro equipo técnico agende vuestro diagnóstico.</p>
             </div>
-            <form action="https://vegendigital.com/MM/diagnostico_digital/" method="GET" class="space-y-4">
+            <form id="auditForm" onsubmit="sendAuditWhatsApp(event)" class="space-y-4">
                 <div>
                     <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Nombre Completo *</label>
-                    <input type="text" required placeholder="Tu nombre" class="w-full p-3 bg-slate-50 border border-gray-200 rounded-xl focus:outline-none focus:border-vegenOrange text-xs text-slate-800">
+                    <input type="text" id="auditName" required placeholder="Tu nombre" class="w-full p-3 bg-slate-50 border border-gray-200 rounded-xl focus:outline-none focus:border-vegenOrange text-xs text-slate-800">
                 </div>
                 <div>
                     <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Email Corporativo *</label>
-                    <input type="email" required placeholder="tu@empresa.com" class="w-full p-3 bg-slate-50 border border-gray-200 rounded-xl focus:outline-none focus:border-vegenOrange text-xs text-slate-800">
+                    <input type="email" id="auditEmail" required placeholder="tu@empresa.com" class="w-full p-3 bg-slate-50 border border-gray-200 rounded-xl focus:outline-none focus:border-vegenOrange text-xs text-slate-800">
                 </div>
                 <div>
                     <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Teléfono de contacto *</label>
-                    <input type="tel" required placeholder="+34 600 000 000" class="w-full p-3 bg-slate-50 border border-gray-200 rounded-xl focus:outline-none focus:border-vegenOrange text-xs text-slate-800">
+                    <input type="tel" id="auditPhone" required placeholder="+34 600 000 000" class="w-full p-3 bg-slate-50 border border-gray-200 rounded-xl focus:outline-none focus:border-vegenOrange text-xs text-slate-800">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Servicio de Interés (Ctrl/Cmd para múltiple)</label>
+                    <select id="auditServices" multiple class="w-full p-3 bg-slate-50 border border-gray-200 rounded-xl focus:outline-none focus:border-vegenOrange text-xs text-slate-800 h-24">
+                        <option value="Automatización IA">Automatización IA</option>
+                        <option value="Desarrollo de Sistemas">Desarrollo de Sistemas</option>
+                        <option value="Análisis de Datos">Análisis de Datos</option>
+                        <option value="Marketing Digital">Marketing Digital</option>
+                    </select>
                 </div>
                 <button type="submit" class="w-full bg-vegenOrange text-white font-bold py-3.5 rounded-xl hover:bg-orange-600 transition text-xs uppercase tracking-wider shadow-md">
-                    Agendar mi sesión gratuita
+                    Agendar por WhatsApp
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- 12. Footer (QDQ Style con Sitemap y RRSS Robustas) -->
-    <footer id="contacto-footer" class="bg-vegenSlate text-gray-300 py-16 border-t border-slate-800">
+    <!-- 12. Footer -->
+    <footer class="bg-vegenSlate text-gray-300 py-16 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-slate-800">
-                
-                <!-- Branding column -->
                 <div class="space-y-4">
                     <div class="flex items-center space-x-2">
-                        <!-- Sprout Icon SVG (La Hojita de Vegen) -->
-                        <svg class="w-6 h-6 text-vegenGreen flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 22V12" />
-                            <path d="M12 12C12 7.58172 8.41828 4 4 4C4 8.41828 7.58172 12 12 12Z" fill="currentColor" fill-opacity="0.2" />
-                            <path d="M12 12C12 7.58172 15.5817 4 20 4C20 8.41828 16.4183 12 12 12Z" fill="currentColor" fill-opacity="0.2" />
-                        </svg>
-                        <span class="text-lg font-black text-white tracking-tight">Vegen <span class="text-slate-400 font-medium">Digital</span></span>
+                        <img src="assets/images/logo_vegen_negativo.png" alt="Vegen Digital Logo" class="h-20 w-auto object-contain brightness-0 invert">
                     </div>
                     <p class="text-xs text-slate-400 leading-relaxed">
                         Sistematizamos y digitalizamos la operativa de las PyMEs mediante integraciones estables y psicología aplicada de mercado.
                     </p>
                 </div>
-
-                <!-- Sitemap: Servicios -->
                 <div>
                     <h4 class="font-extrabold text-xs text-white uppercase tracking-wider mb-4">Servicios Básicos</h4>
                     <ul class="space-y-2 text-xs text-slate-400">
@@ -206,37 +325,28 @@
                         <li><a href="index.html#servicios" class="hover:text-white transition">Marketing Digital</a></li>
                     </ul>
                 </div>
-
-                <!-- Sitemap: Compañía -->
                 <div>
                     <h4 class="font-extrabold text-xs text-white uppercase tracking-wider mb-4">Nuestra Agencia</h4>
                     <ul class="space-y-2 text-xs text-slate-400">
                         <li><a href="index.html#por-que" class="hover:text-white transition">¿Por qué elegirnos?</a></li>
                         <li><a href="index.html#planes" class="hover:text-white transition">Planes estructurados</a></li>
-                        <li><a href="contacto.html" class="hover:text-white transition">Presupuesto / Contacto</a></li>
+                        <li><a href="contacto.html" class="hover:text-white transition">Calculadora Exprés</a></li>
                         <li><a href="https://vegendigital.com/MM/" class="hover:text-white transition" target="_blank">Nuestra Intranet /MM/</a></li>
                     </ul>
                 </div>
-
-                <!-- Contact & RRSS Robustas -->
                 <div class="space-y-4">
                     <h4 class="font-extrabold text-xs text-white uppercase tracking-wider">Contacto</h4>
-                    <p class="text-xs text-slate-400">Calle Augusto Figueroa 9, 28004, Madrid.</p>
-                    <p class="text-xs text-slate-400">Email: vegendigital@gmail.com</p>
-                    
-                    <!-- RRSS Robustas -->
+                    <p class="text-xs text-slate-400">Ubicación: Madrid (28004), España</p>
+                    <p class="text-xs text-slate-400">Email: info@vegendigital.com</p>
                     <div class="flex space-x-3 pt-2">
-                        <!-- LinkedIn -->
                         <a href="https://linkedin.com" target="_blank" class="p-2 bg-slate-800 rounded-lg hover:bg-vegenGreen hover:text-white text-slate-400 transition shadow" aria-label="LinkedIn">
                             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                         </a>
-                        <!-- Instagram -->
                         <a href="https://instagram.com" target="_blank" class="p-2 bg-slate-800 rounded-lg hover:bg-vegenGreen hover:text-white text-slate-400 transition shadow" aria-label="Instagram">
                             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                         </a>
                     </div>
                 </div>
-
             </div>
             <div class="pt-8 text-center text-xs text-slate-500">
                 © 2024 Vegen Digital Consulting. Todos los derechos reservados.

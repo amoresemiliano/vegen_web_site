@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digitalización de Empresas - Vegen Digital</title>
+    <title>Desarrollo y Digitalización - Vegen Digital</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        vegenGreen: '#10B981',
-                        vegenGreenDark: '#047857',
+                        vegenGreen: '#32CD32',
+                        vegenGreenDark: '#228B22',
                         vegenSlate: '#1E293B',
                         vegenOrange: '#EA580C',
                         vegenLight: '#FAFAFA'
@@ -24,28 +24,28 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased scroll-smooth">
 
+    <!-- 1. Mini Banner Superior -->
     <div class="bg-vegenSlate text-center py-2 px-4 text-xs font-bold text-white tracking-wider uppercase relative z-50">
         🔥 Solicita hoy tu <span class="text-vegenGreen">Auditoría de Sistemas 100% Gratuita</span>. Cupos limitados para este mes.
     </div>
 
+    <!-- 2. Header / Navbar -->
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-150">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="index.html#inicio" class="flex items-center space-x-2">
-                <svg class="w-8 h-8 text-vegenGreen flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22V12" />
-                    <path d="M12 12C12 7.58172 8.41828 4 4 4C4 8.41828 7.58172 12 12 12Z" fill="currentColor" fill-opacity="0.2" />
-                    <path d="M12 12C12 7.58172 15.5817 4 20 4C20 8.41828 16.4183 12 12 12Z" fill="currentColor" fill-opacity="0.2" />
-                </svg>
-                <span class="text-xl font-black text-slate-900 tracking-tight">Vegen <span class="text-slate-500 font-medium">Digital</span></span>
+                <img src="assets/images/logo_vegen_negativo.png" alt="Vegen Digital Logo" class="h-10 w-auto object-contain">
             </a>
+
+            <!-- Menú de Navegación -->
             <nav class="hidden lg:flex items-center space-x-8 text-xs font-extrabold uppercase tracking-wider text-slate-600">
                 <a href="index.html#inicio" class="hover:text-vegenGreen transition">Inicio</a>
-                <a href="index.html#servicios" class="hover:text-vegenGreen transition">Servicios</a>
+                <a href="index.html#servicios" class="text-vegenGreen transition">Servicios</a>
                 <a href="index.html#por-que" class="hover:text-vegenGreen transition">Nosotros</a>
                 <a href="index.html#planes" class="hover:text-vegenGreen transition">Planes</a>
-                <a href="contacto.html" class="hover:text-vegenGreen transition text-vegenGreenDark">Presupuesto</a>
+                <button onclick="openBudgetModal()" class="hover:text-vegenGreen transition text-vegenGreenDark focus:outline-none">Presupuesto</button>
                 <a href="contacto.html" class="hover:text-vegenGreen transition">Contacto</a>
             </nav>
+
             <div class="flex items-center space-x-3">
                 <button onclick="openAuditModal()" class="btn-orange-live bg-vegenOrange text-white font-bold text-xs px-5 py-2.5 rounded-xl transition shadow-md">
                     Auditoría Gratis
@@ -54,82 +54,93 @@
         </div>
     </header>
 
-    <!-- Contenido Principal: Digitalización -->
-    <section class="py-20 bg-white border-y border-gray-150 min-h-[60vh]">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <div class="w-16 h-16 bg-emerald-50 rounded-2xl mx-auto flex items-center justify-center mb-6 text-vegenGreen">
-                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
-                </div>
-                <h1 class="text-4xl font-black text-slate-900 tracking-tight">Digitalización de Empresas</h1>
-                <p class="mt-4 text-slate-500 text-lg">Sistematizar no es volverse rígido, es ganar libertad.</p>
+    <!-- Contenido Digitalización -->
+    <section class="py-20 bg-white border-y border-gray-150 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNlN2U1ZTQiIGZpbGwtb3BhY2l0eT0iMC40Ii8+PC9zdmc+')] z-0"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <span class="inline-block bg-vegenGreen/10 text-vegenGreenDark text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">
+                    Servicio Core
+                </span>
+                <h1 class="text-4xl font-black text-slate-900 tracking-tight mb-6">Sistemas y Digitalización</h1>
+                <p class="text-slate-600 text-lg leading-relaxed">
+                    Construimos la infraestructura digital que tu empresa necesita para escalar. Desde tu escaparate online hasta sistemas de gestión interna que conectan todas tus herramientas.
+                </p>
             </div>
-
-            <div class="text-base text-slate-600 leading-relaxed space-y-6">
-                <p><strong>La estructura digital de una empresa es el esqueleto que sostiene sus sueños.</strong> Si los sistemas fallan, no son adecuados o no están correctamente integrados, el crecimiento se vuelve doloroso y desordenado, limitando el potencial real de tu equipo.</p>
-                <p>Nos encargamos de integrar tus herramientas actuales o desarrollar nuevas soluciones a medida que fluyan con tu operativa diaria. El objetivo es que la tecnología deje de ser un obstáculo y se convierta en el motor silencioso de tu PyME.</p>
-                <p>Unificamos la información dispersa en sistemas robustos que garantizan que cada área de tu empresa hable el mismo idioma, eliminando cuellos de botella y errores humanos prevenibles.</p>
-                
-                <div class="bg-emerald-50 p-8 rounded-2xl border border-emerald-100 my-8">
-                    <h4 class="font-bold text-slate-900 text-lg mb-4">Cuestionamientos para tu crecimiento:</h4>
-                    <ul class="list-disc pl-6 text-slate-700 space-y-3">
-                        <li>¿Tu arquitectura digital actual soportaría un crecimiento del 200% en las ventas de mañana mismo?</li>
-                        <li>¿La información de tu negocio está fragmentada en archivos sueltos o integrada en un sistema centralizado?</li>
-                        <li>¿Tus procesos administrativos dependen de la memoria de las personas o están automatizados en un software?</li>
-                        <li>¿Pierdes tiempo valioso buscando información que debería estar a un clic de distancia para decidir?</li>
-                        <li>¿Sientes que tus herramientas digitales actuales son "islas" que no se comunican entre sí?</li>
-                    </ul>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Servicio 1 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-gray-200 hover:border-vegenGreen transition group">
+                    <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-vegenGreen mb-4 shadow-sm group-hover:scale-110 transition-transform">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
+                    </div>
+                    <h3 class="text-base font-black text-slate-900 mb-2">Desarrollo Web</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">Páginas web corporativas optimizadas para conversión y velocidad de carga extrema.</p>
+                    <button onclick="openBudgetModalAndSelect('calc-acc2', 'Desarrollo Web')" class="text-[10px] font-bold text-vegenGreen hover:text-vegenGreenDark uppercase tracking-wider flex items-center">
+                        Cotizar <svg class="w-3 h-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                    </button>
                 </div>
-                
-                <p>Sistematizar no es volverse rígido, es ganar la libertad de delegar con la confianza de que los procesos se cumplirán con excelencia.</p>
-                <p class="font-semibold text-slate-900 text-xl border-l-4 border-vegenGreen pl-4 py-2 mt-8">Para ello, diseñamos infraestructuras sólidas y escalables que te permitan enfocarte en expandir tu visión mientras nosotros nos ocupamos de que el motor nunca se detenga.</p>
+
+                <!-- Servicio 2 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-gray-200 hover:border-vegenGreen transition group">
+                    <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-vegenGreen mb-4 shadow-sm group-hover:scale-110 transition-transform">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
+                    </div>
+                    <h3 class="text-base font-black text-slate-900 mb-2">E-Commerce Avanzado</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">Tiendas online robustas con integraciones de logística, ERP y automatización de marketing.</p>
+                    <button onclick="openBudgetModalAndSelect('calc-acc2', 'E-Commerce Avanzado')" class="text-[10px] font-bold text-vegenGreen hover:text-vegenGreenDark uppercase tracking-wider flex items-center">
+                        Cotizar <svg class="w-3 h-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                    </button>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-gray-200 hover:border-vegenGreen transition group">
+                    <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-vegenGreen mb-4 shadow-sm group-hover:scale-110 transition-transform">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+                    </div>
+                    <h3 class="text-base font-black text-slate-900 mb-2">Integración ERP/CRM</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">Conectamos tus sistemas aislados para que la información fluya en tiempo real sin cuellos de botella.</p>
+                    <button onclick="openBudgetModalAndSelect('calc-acc2', 'Integración ERP/CRM')" class="text-[10px] font-bold text-vegenGreen hover:text-vegenGreenDark uppercase tracking-wider flex items-center">
+                        Cotizar <svg class="w-3 h-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                    </button>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-gray-200 hover:border-vegenGreen transition group">
+                    <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-vegenGreen mb-4 shadow-sm group-hover:scale-110 transition-transform">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                    </div>
+                    <h3 class="text-base font-black text-slate-900 mb-2">Apps a Medida</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">Portales de clientes, intranets o software de gestión hecho a la medida exacta de tus procesos operativos.</p>
+                    <button onclick="openBudgetModalAndSelect('calc-acc2', 'App Interna a Medida')" class="text-[10px] font-bold text-vegenGreen hover:text-vegenGreenDark uppercase tracking-wider flex items-center">
+                        Cotizar <svg class="w-3 h-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                    </button>
+                </div>
             </div>
             
             <div class="mt-16 text-center">
-                <a href="index.html#inicio" class="btn-live inline-flex justify-center items-center px-8 py-4 text-base font-bold rounded-xl text-white bg-vegenGreen hover:bg-vegenGreenDark transition shadow-md">
-                    Volver a Inicio e Iniciar Presupuesto
-                </a>
+                <button onclick="openBudgetModal()" class="btn-live bg-vegenSlate text-white font-bold text-xs px-8 py-4 rounded-xl transition shadow-lg hover:shadow-xl uppercase tracking-wider">
+                    Presupuestar Desarrollo
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- 11. Modal Popup -->
-    <div id="auditModal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden">
-        <div class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto border border-gray-200 shadow-2xl relative p-6 sm:p-8">
-            <button onclick="closeAuditModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold">✕</button>
-            <div class="text-center mb-6">
-                <span class="text-[10px] font-bold text-vegenOrange uppercase tracking-wider block">Auditoría Gratuita</span>
-                <h3 class="text-2xl font-black text-slate-900 mt-1">Sesión de Análisis sin coste</h3>
-            </div>
-            <form action="https://vegendigital.com/MM/diagnostico_digital/" method="GET" class="space-y-4">
-                <div>
-                    <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Nombre Completo *</label>
-                    <input type="text" required placeholder="Tu nombre" class="w-full p-3 bg-slate-50 border border-gray-200 rounded-xl focus:outline-none focus:border-vegenOrange text-xs text-slate-800">
-                </div>
-                <div>
-                    <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Email Corporativo *</label>
-                    <input type="email" required placeholder="tu@empresa.com" class="w-full p-3 bg-slate-50 border border-gray-200 rounded-xl focus:outline-none focus:border-vegenOrange text-xs text-slate-800">
-                </div>
-                <div>
-                    <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Teléfono de contacto *</label>
-                    <input type="tel" required placeholder="+34 600 000 000" class="w-full p-3 bg-slate-50 border border-gray-200 rounded-xl focus:outline-none focus:border-vegenOrange text-xs text-slate-800">
-                </div>
-                <button type="submit" class="w-full bg-vegenOrange text-white font-bold py-3.5 rounded-xl hover:bg-orange-600 transition text-xs uppercase tracking-wider shadow-md">
-                    Agendar mi sesión gratuita
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- 12. Footer -->
-    <footer class="bg-vegenSlate text-gray-300 py-16 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="pt-8 text-center text-xs text-slate-500">
-                © 2024 Vegen Digital Consulting. Todos los derechos reservados.
-            </div>
-        </div>
-    </footer>
-
+    <!-- Modal Popup inyectado dinámicamente -->
     <script src="assets/js/main.js"></script>
+    <script>
+        fetch('contacto.html')
+            .then(response => response.text())
+            .then(data => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(data, 'text/html');
+                const budgetModal = doc.getElementById('budgetModal');
+                const auditModal = doc.getElementById('auditModal');
+                if(budgetModal && auditModal) {
+                    document.body.appendChild(budgetModal.cloneNode(true));
+                    document.body.appendChild(auditModal.cloneNode(true));
+                }
+            });
+    </script>
 </body>
 </html>
